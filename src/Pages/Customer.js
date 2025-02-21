@@ -15,10 +15,10 @@ function Customer() {
   ]);
   return (
     <div>
-      <CustomerAction isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <CustomerAction isModalOpen={isModalOpen} setisModalOpen={setIsModalOpen} />
       <CustomerTable CustomerData={CustomerData} setCustomerData={setCustomerData}/>
       {
-        CustomerModal && 
+        isModalOpen && 
         <CustomerModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} CustomerData={CustomerData} setCustomerData={setCustomerData} />
       }
 
