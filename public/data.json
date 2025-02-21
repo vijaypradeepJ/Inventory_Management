@@ -1,0 +1,18 @@
+[
+    {
+        "id":"1",
+        "category":"fruit"
+    },
+    {
+        "id":"2",
+        "category":"vegetable"
+    },
+    {
+        "id":"3",
+        "category":"Snacks"
+    },
+    {
+        "id":"4",
+        "category":"dry fruits"
+    }
+]

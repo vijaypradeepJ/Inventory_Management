@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Menubar from './Components/Menu/Menubar';
+import Category from './Pages/Category';
+import Home from './Pages/Home';
+import {Routes, Route} from "react-router-dom"
+import Purchases from './Pages/Purchases';
+import Product from './Pages/Product';
+import Customer from './Pages/Customer';
+import Supliers from './Pages/Supliers';
+import Sales from './Pages/Sales';
+import Users from './Pages/Users';
+import Report from './Pages/Report';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  <Menubar/>
+  <main className='main'>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category" element={<Category/>} />
+        <Route path="/product" element={<Product/>} />
+        <Route path="/customer" element={<Customer/>} />
+        <Route path="/supplier" element={<Supliers/>} />
+        <Route path="/purchases" element={<Purchases/>} />
+        <Route path="/sales" element={<Sales/>} />
+        <Route path="/users" element={<Users/>} />
+        <Route path="/report" element={<Report/>} />
+        
+      
+      </Routes>
+
+  </main>
+  
+  </>
   );
 }
 
