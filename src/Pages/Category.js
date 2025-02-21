@@ -6,7 +6,7 @@ function Category() {
   const[isModalOpen,setIsModalOpen]=useState(false);
   return (
     <div>
-      <DataTable categoryData={categoryData} setCategoryData={setCategoryData}/>
+      <DataTable categoryData={categoryData} setCategoryData={setCategoryData} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
       {
           isModalOpen &&
           <ItemModal setIsModalOpen={setIsModalOpen} categoryData={categoryData} setCategoryData={setCategoryData} />
