@@ -1,6 +1,5 @@
-import React, { useEffect} from 'react'
+import React from 'react'
 import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
-import axios from "axios";
 
 function ProductTable({ProductData,setProductData}) {
   return (
