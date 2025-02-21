@@ -5,13 +5,14 @@ import Button from "@mui/material/Button"
 import "./CustomerAction.css"
 
 function CustomerTable({CustomerData,setCustomerData,setisModalOpen,isModalOpen}) {
+  const[search,setsearch]=useState("")
   const handleAddCustomer=()=>{
     setisModalOpen(true);
   }
   return (
     <>
      <div className='Search'>
-        <TextField id="outlined-search" label="Search field" type="search" size='medium' color='#574964' />        
+        <TextField id="outlined-search" label="Search field" type="search" value={search} onChange={e=>setsearch(e.target.value)} size='medium' color='#574964' />        
         <Button variant='contained' size='small' onClick={handleAddCustomer} >Add Item</Button>
         </div>
 
@@ -31,7 +32,13 @@ function CustomerTable({CustomerData,setCustomerData,setisModalOpen,isModalOpen}
             </TableHead>
             <TableBody>
               {
-                CustomerData.map(({id,Name,Phone,Email})=>(
+                CustomerData
+                .filter((customer)=>{
+                   return search.toLowerCase() === "" 
+                  ? customer
+                  : customer.Name.toLowerCase().includes(search)
+                })
+                .map(({id,Name,Phone,Email})=>(
                   <TableRow
                   key={id}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
