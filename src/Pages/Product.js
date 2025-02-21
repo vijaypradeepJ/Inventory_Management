@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductTable from '../Components/ProductTable/ProductTable'
 
 function Product() {
   return (
-    <div>Product</div>
+    <div>
+      <ProductTable/>
+    </div>
   )
 }
 
