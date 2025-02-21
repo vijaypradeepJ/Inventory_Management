@@ -1,10 +1,15 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useState} from 'react'
 import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
 import axios from "axios";
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import "./ItemAction.css"
 
-function DataTable({categoryData,setCategoryData}) {
-  console.table(categoryData);
-  
+function DataTable({categoryData,setCategoryData,isModalOpen,setIsModalOpen}) {
+  const[search,setSearch]=useState("");
+  const handleAddItem=()=>{
+    setIsModalOpen(true);
+   }
   const pathToJsonFile="/data.json";
   useEffect(()=>{
     const fetchCategoryData=async()=>{
@@ -20,10 +25,15 @@ function DataTable({categoryData,setCategoryData}) {
     fetchCategoryData();
   },[])
 
-  // Add Data 
+  
 
 
   return (
+    <>
+    <div className='Search'>
+        <TextField id="outlined-search" label="Search field" type="search" value={search} onChange={e=>setSearch(e.target.value)} size='medium' color='#574964' />        
+        <Button variant='contained' size='small' onClick={handleAddItem} >Add Item</Button>
+        </div>
     <div style={{marginTop:"2rem",marginRight:"3rem"}}>
       <TableContainer component={Paper} elevation={8}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -36,7 +46,14 @@ function DataTable({categoryData,setCategoryData}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          { categoryData.map(({id,category})=>(
+          { categoryData
+             .filter((item)=>{
+               return search.toLowerCase() === ""
+               ? item 
+               : item.category.toLowerCase().includes(search);
+             })
+          
+             .map(({id,category})=>(
             <TableRow
             key={id}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -58,6 +75,7 @@ function DataTable({categoryData,setCategoryData}) {
       </Table>
     </TableContainer>
     </div>
+    </>
   )
 }
 

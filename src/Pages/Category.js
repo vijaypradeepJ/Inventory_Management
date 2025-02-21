@@ -1,5 +1,4 @@
 import React ,{useState} from 'react'
-import ItemAction from '../Components/ItemActions/ItemAction'
 import DataTable from '../Components/Table/DataTable'
 import ItemModal from '../Components/ItemModal/ItemModal';
 function Category() {
@@ -7,7 +6,6 @@ function Category() {
   const[isModalOpen,setIsModalOpen]=useState(false);
   return (
     <div>
-      <ItemAction isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <DataTable categoryData={categoryData} setCategoryData={setCategoryData}/>
       {
           isModalOpen &&
