@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import CustomerAction from '../Components/CustomerAction/CustomerAction';
 import CustomerTable from '../Components/CustomerTable/CustomerTable';
 import CustomerModal from '../Components/CustomerModal/CustomerModal';
 
@@ -15,8 +14,7 @@ function Customer() {
   ]);
   return (
     <div>
-      <CustomerAction isModalOpen={isModalOpen} setisModalOpen={setIsModalOpen} />
-      <CustomerTable CustomerData={CustomerData} setCustomerData={setCustomerData}/>
+      <CustomerTable CustomerData={CustomerData} setCustomerData={setCustomerData} isModalOpen={isModalOpen} setisModalOpen={setIsModalOpen}/>
       {
         isModalOpen && 
         <CustomerModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} CustomerData={CustomerData} setCustomerData={setCustomerData} />

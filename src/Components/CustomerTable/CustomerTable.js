@@ -1,8 +1,21 @@
 import React from 'react'
 import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import "./CustomerAction.css"
 
-function CustomerTable({CustomerData,setCustomerData}) {
+function CustomerTable({CustomerData,setCustomerData,setisModalOpen,isModalOpen}) {
+  const handleAddCustomer=()=>{
+    setisModalOpen(true);
+  }
   return (
+    <>
+     <div className='Search'>
+        <TextField id="outlined-search" label="Search field" type="search" size='medium' color='#574964' />        
+        <Button variant='contained' size='small' onClick={handleAddCustomer} >Add Item</Button>
+        </div>
+
+        
      <div style={{marginTop:"2rem",marginRight:"3rem"}}>
           <TableContainer component={Paper} elevation={8}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -40,6 +53,7 @@ function CustomerTable({CustomerData,setCustomerData}) {
           </Table>
         </TableContainer>
         </div>
+        </>
    
   )
 }
