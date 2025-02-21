@@ -36,7 +36,7 @@ function CustomerModal({CustomerData,setCustomerData,setIsModalOpen,isModalOpen}
             <TextField id="standard-basic" label="Phone" variant="standard" value={PhoneNo} onChange={e=>setPhoneNo(e.target.value)}  />
             </Grid2>
             <Grid2 size={6} textAlign={'center'}  mt={1}>
-            <TextField id="standard-basic" label="Purchase Price" variant="standard" value={Email} onChange={e=>setEmail(e.target.value)}  />
+            <TextField id="standard-basic" label="Email" variant="standard" value={Email} onChange={e=>setEmail(e.target.value)}  />
             </Grid2>
             <Grid2  size={8} px={10} mt={5} >
             <Button  variant='contained' color='success' onClick={handleAddCustomer} >Add Customer</Button>
