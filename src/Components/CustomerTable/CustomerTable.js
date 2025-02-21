@@ -1,8 +1,46 @@
 import React from 'react'
+import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
 
-function CustomerTable() {
+function CustomerTable({CustomerData,setCustomerData}) {
   return (
-    <div>CustomerTable</div>
+     <div style={{marginTop:"2rem",marginRight:"3rem"}}>
+          <TableContainer component={Paper} elevation={8}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>S.no</TableCell>
+                <TableCell >Name</TableCell>
+                <TableCell align="right">Phone</TableCell>
+                <TableCell align="right">Email</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {
+                CustomerData.map(({id,Name,Phone,Email})=>(
+                  <TableRow
+                  key={id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">{id}</TableCell>
+                  <TableCell component="th" scope="row">{Name}</TableCell>
+                  <TableCell align="right">{Phone}</TableCell>
+                  <TableCell align="right">{Email}</TableCell>
+                  <TableCell align="right">edit</TableCell>
+                  <TableCell align="right">delete</TableCell>
+                </TableRow>
+    
+    
+                ))
+              }
+              
+               
+            </TableBody>
+          </Table>
+        </TableContainer>
+        </div>
+   
   )
 }
 

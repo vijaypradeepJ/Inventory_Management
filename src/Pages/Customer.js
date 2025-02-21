@@ -5,7 +5,14 @@ import CustomerModal from '../Components/CustomerModal/CustomerModal';
 
 function Customer() {
   const[isModalOpen,setIsModalOpen]=useState(false);
-  const[CustomerData,setCustomerData]=useState([]);
+  const[CustomerData,setCustomerData]=useState([
+    {
+      id:1,
+      Name:"Vijay",
+      Phone:9342496489,
+      Email:"pradeep@gmail.com"
+    }
+  ]);
   return (
     <div>
       <CustomerAction isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
