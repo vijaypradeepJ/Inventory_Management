@@ -2,7 +2,7 @@ import React, { useEffect} from 'react'
 import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
 import axios from "axios";
 
-function ProductTable() {
+function ProductTable({ProductData,setProductData}) {
   return (
     <div style={{marginTop:"2rem",marginRight:"3rem"}}>
       <TableContainer component={Paper} elevation={8}>
@@ -19,18 +19,26 @@ function ProductTable() {
           </TableRow>
         </TableHead>
         <TableBody>
+          {
+            ProductData.map(({id,Name,category,pur_price,sales_price})=>(
+              <TableRow
+              key={id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">{id}</TableCell>
+              <TableCell component="th" scope="row">{Name}</TableCell>
+              <TableCell align="right">{category}</TableCell>
+              <TableCell align="right">{pur_price}</TableCell>
+              <TableCell align="right">{sales_price}</TableCell>
+              <TableCell align="right">edit</TableCell>
+              <TableCell align="right">delete</TableCell>
+            </TableRow>
+
+
+            ))
+          }
           
-            <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell component="th" scope="row">1</TableCell>
-            <TableCell component="th" scope="row">apple</TableCell>
-            <TableCell align="right">Fruits</TableCell>
-            <TableCell align="right">20</TableCell>
-            <TableCell align="right">35</TableCell>
-            <TableCell align="right">edit</TableCell>
-            <TableCell align="right">delete</TableCell>
-          </TableRow>
+           
         </TableBody>
       </Table>
     </TableContainer>

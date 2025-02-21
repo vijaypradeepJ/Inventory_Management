@@ -4,7 +4,6 @@ import{Box, Button, Grid2, Paper, TextField, Typography} from "@mui/material";
 function ItemModal({setIsModalOpen,categoryData,setCategoryData}) {
     const[Item,SetItem]=useState("")
     const handleAddItem= ()=>{
-        console.table(categoryData);
         setCategoryData([...categoryData,{
             id:categoryData.length +1 ,
             category:Item
