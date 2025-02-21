@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ProductTable from '../Components/ProductTable/ProductTable'
-import ProductAction from '../Components/ProductAction/ProductAction'
+
 import ProductModal from '../Components/ProductModal/ProductModal'
 
 function Product() {
@@ -12,12 +12,32 @@ function Product() {
       category:"fruits",
       pur_price:20,
       sales_price:40
+    },
+    {
+      id:2,
+      Name:"Mango",
+      category:"fruits",
+      pur_price:20,
+      sales_price:40
+    },
+    {
+      id:3,
+      Name:"papaya",
+      category:"fruits",
+      pur_price:20,
+      sales_price:40
+    },
+    {
+      id:4,
+      Name:"potato",
+      category:"fruits",
+      pur_price:20,
+      sales_price:40
     }
   ]);
     return (
     <div>
-      <ProductAction isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
-      <ProductTable ProductData={ProductData} setProductData={setProductData}/>
+      <ProductTable ProductData={ProductData} setProductData={setProductData} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       {
         isModalOpen &&
         <ProductModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ProductData={ProductData} setProductData={setProductData}/>

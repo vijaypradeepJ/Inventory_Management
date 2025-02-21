@@ -1,8 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from '@mui/material'
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import "./ProductAction.css"
 
-function ProductTable({ProductData,setProductData}) {
+function ProductTable({ProductData,setProductData,isModalOpen,setIsModalOpen}) {
+  const[SearchItem,setSearchItem]=useState("")
+  
+     const handleAddItem=()=>{
+      setIsModalOpen(true);
+     }
   return (
+    <>
+    <div className='Search'>
+        <TextField id="outlined-search" label="Search field" type="search" value={SearchItem} onChange={(e)=>setSearchItem(e.target.value)}  size='medium' color='#574964' />        
+        <Button variant='contained' size='small' onClick={handleAddItem} >Add Product</Button>
+        </div>
     <div style={{marginTop:"2rem",marginRight:"3rem"}}>
       <TableContainer component={Paper} elevation={8}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -19,7 +32,15 @@ function ProductTable({ProductData,setProductData}) {
         </TableHead>
         <TableBody>
           {
-            ProductData.map(({id,Name,category,pur_price,sales_price})=>(
+            ProductData
+              .filter((item)=>{
+                return SearchItem.toLowerCase() === " " 
+                ? item
+                : item.Name.toLowerCase().includes(SearchItem) ||
+                  item.category.toLowerCase().includes(SearchItem); 
+              })
+            .map(({id,Name,category,pur_price,sales_price})=>
+              (
               <TableRow
               key={id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -42,6 +63,7 @@ function ProductTable({ProductData,setProductData}) {
       </Table>
     </TableContainer>
     </div>
+    </>
   )
 }
 
