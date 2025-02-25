@@ -1,8 +1,11 @@
 import React from 'react'
+import PurchaseTable from '../Components/PurchaseTable/PurchaseTable'
 
 function Purchases() {
   return (
-    <div>Purchases</div>
+    <div>
+      <PurchaseTable/>
+    </div>
   )
 }
 

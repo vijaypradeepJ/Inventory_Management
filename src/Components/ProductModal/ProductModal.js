@@ -1,11 +1,14 @@
 import React ,{useState} from 'react'
 import "./ProductModal.css";
 import{Box, Button, Grid2, Paper, TextField, Typography} from "@mui/material";
-function ProductModal({isModalOpen , setIsModalOpen , ProductData,setProductData}) {
+function ProductModal({isModalOpen , setIsModalOpen , ProductData,setProductData,selectProduct}) {
   const[ProductName,setProductName]=useState("");
   const[categoryType,setCategoryType]=useState("")
   const[purchasePrice,setPurchasePrice]=useState("")
   const[salesPrice,setSalesPrice]=useState("");
+
+  
+
   const handleCancelModal=()=>{
     setIsModalOpen(false);
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ProductTable from '../Components/ProductTable/ProductTable'
 
-import ProductModal from '../Components/ProductModal/ProductModal'
+
 
 function Product() {
   const[isModalOpen,setIsModalOpen]=useState(false);
@@ -38,10 +38,7 @@ function Product() {
     return (
     <div>
       <ProductTable ProductData={ProductData} setProductData={setProductData} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
-      {
-        isModalOpen &&
-        <ProductModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ProductData={ProductData} setProductData={setProductData}/>
-      }
+     
     </div>
   )
 }

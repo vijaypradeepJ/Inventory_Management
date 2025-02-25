@@ -3,12 +3,17 @@ import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import "./SupplierTable.css"
+import { MdDelete ,MdEdit} from "react-icons/md";
+import SupplierModal from '../SupplierModal/SupplierModal'
 
-function SupplierTable({setisModalOpen,isModalOpen,supplierData,setSupplierData}) {
+function SupplierTable({setIsModalOpen,isModalOpen,supplierData,setSupplierData}) {
      const[search,setsearch]=useState("")
       const handleAddSupplier=()=>{
-        setisModalOpen(true);
+        setIsModalOpen(true);
       }
+      const handleDelete=(id)=>{
+         const deleteData=supplierData.filter(((data)=>data.id !== id))
+         setSupplierData(deleteData);
   return (
     <>
          <div className='Search'>
@@ -49,8 +54,8 @@ function SupplierTable({setisModalOpen,isModalOpen,supplierData,setSupplierData}
                   <TableCell align="right">{phone}</TableCell>
                   <TableCell align="right">{email}</TableCell>
                   <TableCell align="right">{Address}</TableCell>
-                  <TableCell align="right">edit</TableCell>
-                  <TableCell align="right">delete</TableCell>
+                  <TableCell align="right" ><Button ><MdEdit  style={{ fontSize:"large", color:"Blue" } }/></Button></TableCell>
+                  <TableCell align="right"><Button onClick={()=>handleDelete(id)}><MdDelete style={{fontSize:"large",color:"red"}}/></Button></TableCell>
                 </TableRow>
     
     
@@ -61,10 +66,17 @@ function SupplierTable({setisModalOpen,isModalOpen,supplierData,setSupplierData}
             </TableBody>
           </Table>
         </TableContainer>
+        {
+        isModalOpen &&
+        <SupplierModal isModalOpen={setIsModalOpen} setIsModalOpen={setIsModalOpen}
+         supplierData={supplierData} setSupplierData={setSupplierData} 
+         />
+      }
         </div>
     </>
 
   )
 }
+}
 
-export default SupplierTable
+export default SupplierTable;

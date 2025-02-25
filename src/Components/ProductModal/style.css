@@ -1,0 +1,103 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.sidebar-header {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.content-header h1 {
+  margin-top: 0;
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.metric-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 1.2em;
+}
+
+.project-summary h2, .overall-progress h2 {
+  margin-bottom: 15px;
+}
+
+.project-table {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.project-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.project-row.header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.project-cell {
+  flex-grow: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+.overall-progress {
+  margin-top: 20px;
+}
+
+.progress-bars {
+  display: flex;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #ddd;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}

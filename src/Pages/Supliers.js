@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SupplierTable from '../Components/SupplierTable/SupplierTable'
-import SupplierModal from '../Components/SupplierModal/SupplierModal'
+
 
 function Supliers() {
   const[isModalOpen,setIsModalOpen]=useState(false)
@@ -38,11 +38,8 @@ function Supliers() {
   ])
   return (
     <div>
-      <SupplierTable isModalOpen={isModalOpen} setisModalOpen={setIsModalOpen} supplierData={supplierData} setSupplierData={setSupplierData}/>
-      {
-        isModalOpen &&
-        <SupplierModal isModalOpen={setIsModalOpen} setIsModalOpen={setIsModalOpen} supplierData={supplierData} setSupplierData={setSupplierData}/>
-      }
+      <SupplierTable isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}supplierData={supplierData} setSupplierData={setSupplierData}/>
+      
     </div>
   )
 }

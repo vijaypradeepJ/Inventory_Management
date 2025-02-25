@@ -3,12 +3,18 @@ import { TableContainer,TableBody,TableCell,TableHead,TableRow,Paper,Table} from
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import "./ProductAction.css"
+import ProductModal from '../ProductModal/ProductModal'
 
 function ProductTable({ProductData,setProductData,isModalOpen,setIsModalOpen}) {
   const[SearchItem,setSearchItem]=useState("")
+  const[selectProduct,setSelectProduct]=useState([])
   
      const handleAddItem=()=>{
       setIsModalOpen(true);
+     }
+     const handleEdit=(id)=>{
+      const editProduct= ProductData.find((item)=> item.id===id)
+      setSelectProduct(editProduct);
      }
   return (
     <>
@@ -50,8 +56,8 @@ function ProductTable({ProductData,setProductData,isModalOpen,setIsModalOpen}) {
               <TableCell align="right">{category}</TableCell>
               <TableCell align="right">{pur_price}</TableCell>
               <TableCell align="right">{sales_price}</TableCell>
-              <TableCell align="right">edit</TableCell>
-              <TableCell align="right">delete</TableCell>
+              <TableCell align="right"><Button onClick={()=>handleEdit(id)}>edit</Button></TableCell>
+              <TableCell align="right" > <Button>delete</Button></TableCell>
             </TableRow>
 
 
@@ -63,6 +69,10 @@ function ProductTable({ProductData,setProductData,isModalOpen,setIsModalOpen}) {
       </Table>
     </TableContainer>
     </div>
+    {
+        isModalOpen &&
+        <ProductModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} ProductData={ProductData} setProductData={setProductData} selectProduct={selectProduct}/>
+      }
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React ,{useState}from 'react'
+import React ,{useEffect, useState}from 'react'
 import "./SupplierModal.css"
 import{Box, Button, Grid2, Paper, TextField, Typography} from "@mui/material";
 
@@ -25,6 +25,10 @@ function SupplierModal({setIsModalOpen,isModalOpen,supplierData,setSupplierData}
           setAdress("")
           setIsModalOpen(false);
         }
+         
+           
+
+        
   return (
     <Box component={Paper} elevation={10}  className='modaloverlay'>
     <Grid2 container rowSpacing={4} columnSpacing={2} alignContent={'center'} alignItems={"center"}>
@@ -55,4 +59,4 @@ function SupplierModal({setIsModalOpen,isModalOpen,supplierData,setSupplierData}
   )
 }
 
-export default SupplierModal
+export default SupplierModal;
